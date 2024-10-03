@@ -34,4 +34,4 @@ class Currency {
 
 }
 
-export Currency as default;
+export default Currency;
