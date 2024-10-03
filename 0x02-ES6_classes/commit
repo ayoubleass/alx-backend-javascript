@@ -1,0 +1,18 @@
+#!/bin/bash
+
+MY_PATH="."
+MESSAGE=" "
+
+if [ "$#" -eq 0 ]
+then
+	echo "Usage 'commit message'"
+else
+	if [ "$#" -gt 1 ]
+	then
+        	MY_PATH=$1
+       	 	MESSAGE=$2 
+    	else
+        	MESSAGE=$1
+    	fi
+	git add "$MY_PATH" && git commit -m "$MESSAGE"  && git push
+fi
