@@ -4,7 +4,7 @@ export default function updateStudentGradeByCity(students, city, newGrades) {
     const currStd = newGrades.find((info) => std.id === info.studentId);
     return {
       ...std,
-      grade: (currStd.grade !== undefined) ? currStd.grade : 'N/A',
+      grade: currStd.grade ? currStd.grade : 'N/A',
     };
   });
   return stdWithGrade;
