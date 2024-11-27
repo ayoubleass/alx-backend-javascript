@@ -1,13 +1,18 @@
 {
-  "name": "unittestwithjs",
+  "name": "0x06-unittests_in_js",
   "version": "1.0.0",
   "description": "",
+  "main": "0-calcul.js",
   "scripts": {
-    "test": "mocha"
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
     "mocha": "^10.8.2"
+  },
+  "dependencies": {
+    "sinon": "^9.2.3"
   }
 }
