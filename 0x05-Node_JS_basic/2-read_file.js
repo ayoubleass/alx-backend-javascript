@@ -6,6 +6,7 @@ const countStudents = (filePath) => {
   }
   const fileData = fs.readFileSync(filePath)
     .toString('utf-8')
+    .trim()
     .split('\n');
   fileData.shift();
   const studentsRecords = fileData;

@@ -5,8 +5,10 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
     if (err) {
       reject(new Error('Cannot load the database'));
     } else {
+      let message = '';
       const fileData = data
         .toString('utf-8')
+        .trim()
         .split('\n');
       fileData.shift();
       const studentsRecords = fileData;
@@ -20,13 +22,15 @@ const countStudents = (filePath) => new Promise((resolve, reject) => {
         }
         studentsByFields[fieldName].push(rowValues[0]);
       }
-      console.log(`Number of students: ${fileData.length}`);
+      message += `Number of students: ${fileData.length}\n`;
       for (const [key, value] of Object.entries(studentsByFields)) {
         if (key && value) {
-          console.log(`Number of students in ${key}: ${value.length}. List: ${value.join(', ')}`);
+          message += `Number of students in ${key}: ${value.length}. List: ${value.join(', ')}\n`;
         }
       }
-      resolve(true);
+      message = message.slice(0, -1);
+      console.log(message);
+      resolve(message);
     }
   });
 });
