@@ -14,7 +14,7 @@ describe('sendPaymentRequestToApii', () => {
      logSpy = sinon.spy(console, 'log');
    });
    
-   after(() => {
+   afterEach(() => {
      logSpy.restore();
    });
    
