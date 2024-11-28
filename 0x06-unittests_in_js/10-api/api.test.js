@@ -19,6 +19,12 @@ describe('Testing api response', () => {
     });
   });
 
+ it('testing /card end point using a non num value to the url', (done) => {
+   request.get('http://localhost:7865/cart/-12', (_err, res, _body) => {
+     expect(res.statusCode).to.be.equal(404);
+     done();
+   });
+ });
   it('testing /available_payments end point', (done) => {
     const res = request.get('http://localhost:7865/available_payments', (err, res, body) => {
       expect(res.statusCode).to.be.equal(200);
